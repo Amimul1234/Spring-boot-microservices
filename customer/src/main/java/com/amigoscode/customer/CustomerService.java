@@ -1,6 +1,7 @@
 package com.amigoscode.customer;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @Author Amimul Ehsan
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public record CustomerService(CustomerRepo customerRepo) {
+public record CustomerService(CustomerRepo customerRepo, RestTemplate restTemplate) {
 
     public void registerCustomer( CustomerRegistrationRequest customerRegistrationRequest ) {
 
@@ -18,6 +19,16 @@ public record CustomerService(CustomerRepo customerRepo) {
                 .email(customerRegistrationRequest.email())
                 .build();
 
-        customerRepo.save(customer);
+        customerRepo.saveAndFlush(customer);
+
+        FraudCheckResponse fraudCheckResponse = restTemplate.getForObject(
+                "http://localhost:8081/api/v1/fraud-check/{customerId}",
+                FraudCheckResponse.class,
+                customer.getId()
+        );
+
+        if (fraudCheckResponse.isFraudster())
+            throw new IllegalStateException("Fraudster!!!");
+
     }
 }
