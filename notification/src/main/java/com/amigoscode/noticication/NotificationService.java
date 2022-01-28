@@ -1,6 +1,7 @@
 package com.amigoscode.noticication;
 
 import com.amigoscode.clients.notification.NotificationRequest;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
  * @Project amigosservices
  */
 
+@Service
 public record NotificationService(NotificationRepository notificationRepository) {
 
     public void send( NotificationRequest notificationRequest ) {
