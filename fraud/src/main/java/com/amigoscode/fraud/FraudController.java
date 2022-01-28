@@ -1,6 +1,10 @@
 package com.amigoscode.fraud;
 
-import org.springframework.web.bind.annotation.*;
+import com.amigoscode.clients.fraud.FraudCheckResponse;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Author Amimul Ehsan
