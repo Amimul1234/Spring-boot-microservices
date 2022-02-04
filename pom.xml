@@ -15,6 +15,7 @@
         <module>eureka-server</module>
         <module>clients</module>
         <module>notification</module>
+        <module>api_gateway</module>
     </modules>
 
     <name>amigosservices</name>
@@ -82,4 +83,5 @@
             </plugins>
         </pluginManagement>
     </build>
+
 </project>
