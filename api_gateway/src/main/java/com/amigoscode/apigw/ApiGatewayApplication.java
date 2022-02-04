@@ -2,12 +2,13 @@ package com.amigoscode.apigw;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @Author Amimul Ehsan
  * @Project amigosservices
  */
-
+@EnableEurekaClient
 @SpringBootApplication
 public class ApiGatewayApplication {
     public static void main( String[] args ) {
