@@ -54,4 +54,5 @@ public class NotificationConfig {
                 .to(internalTopicExchange())
                 .with(internalNotificationRoutingKeys);
     }
+
 }

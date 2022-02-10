@@ -12,11 +12,9 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public record RabbitMqMessageProducer(AmqpTemplate amqpTemplate) {
-
     public void publish( Object payLoad, String exchange, String routingKey ) {
         log.info("Publishing to {} using routing key {}. Payload : {}", exchange, routingKey, payLoad);
         amqpTemplate.convertAndSend(exchange, routingKey, payLoad);
         log.info("Published to {} using routing key {}. Payload : {}", exchange, routingKey, payLoad);
     }
-
 }
