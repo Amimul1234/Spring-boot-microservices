@@ -14,7 +14,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
         basePackages = "com.amigoscode.clients"
 )
 @EnableEurekaClient
-@SpringBootApplication
+@SpringBootApplication(
+        scanBasePackages = {
+                "com.amigoscode.customer",
+                "com.amigoscode.amqp"
+        }
+)
 public class CustomerApplication {
     public static void main( String[] args ) {
         SpringApplication.run(CustomerApplication.class, args);

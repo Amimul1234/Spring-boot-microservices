@@ -1,4 +1,4 @@
-package com.amigoscode.noticication;
+package com.amigoscode.notification;
 
 import lombok.*;
 
